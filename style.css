@@ -1,101 +1,235 @@
-body{
-    font-family: Helvetica, Arial, sans-serif;
-    margin: 0px;
-    font-size: 1.2vw;
+body {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+     font-size: 1.2vw;
 }
 
-#logo{
-    margin: 0px;
+/* Color Palette */
+:root {
+    --primary-blue: #0073e6;
+    --secondary-blue: #005bb5;
+    --light-blue: #cce6ff;
+    --white: #ffffff;
+    --text-color: #333;
+}
+
+/* Header Styling */
+header {
+    padding: 16px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+}
+
+#logo {
+    margin: 0;
     padding: 8px;
     color: white;
-    font-family: "Fredoka One, Arial Black";
-    width: 20%;
+    font-family: "Fredoka One", Arial, sans-serif;
+    width: 50%;
     text-shadow:
-    1px 1px 0px black,
-    -1px 1px 0px black,
-    1px -1px 0px black,
-    -1px -1px 0px black;
-}
- 
-ul {
-    margin: 0px;
+        1px 1px 0px navy,
+        -1px 1px 0px navy,
+        1px -1px 0px navy,
+        -1px -1px 0px navy;
 }
 
-body > header {
-    background-color: orange;
+.hero {
+    text-align: center;
+}
+
+.header-content {
     display: flex;
-    height: 10vh;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-
-
-body > header > nav > ul {
-    list-style: none;
-    text-decoration: none;
+/* Navigation Bar Styling */
+#nav-ul {
+    background-color: var(--secondary-blue);
 }
 
 #nav-ul {
+    list-style: none;
     display: flex;
-
+    justify-content: space-around;
 }
 
 #nav-ul > li {
-    padding: 8px;
-    margin: 16px;
+    display: inline;
 }
 
-.navbutton {
-    color: white;
+#nav-ul > li a {
     text-decoration: none;
-    padding: 12px ;
-    border: 1px solid white;
-    border-radius: 10%;
+    color: var(--white);
 }
 
-body > main article {
-    width: 70%;
-    margin: auto;
-} 
+/* Grid Layout */
+#grid-container {
+    display: grid;
+    grid-template-areas: 
+        "header header header header header header"
+        "menu-1 menu-2 menu-3 menu-4 menu-5 menu-6"
+        "investment-section investment-section forum-section forum-section risk-tool-section risk-tool-section"
+        "image-container image-container image-container text-content text-content text-content"
+        " hba1c-image hba1c-image hba1c-image hba1c-text hba1c-text hba1c-text"
+        "footer footer footer footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 32px;
+}
 
-#main-content {
+
+/* General Section Styling */
+#grid-container section {
+    padding: 16px;
+    background-color: var(--white);
+    border: 1px solid lightblue;
+    border-radius: 8px;
+}
+
+/* Flexbox Layout within Grid Items */
+#image-container, #text-content, #hba1c-image, #hba1c-text {
+    background-color: var(--light-blue); /* Or another color to see the boundaries */
     display: flex;
-    justify-content: space-around;
-
+    justify-content: center;
+    align-items: center;
 }
 
-#main-content > div {
-    width: 85%;
-
-}
-
-#main-content > aside {
-    width: 15%;
-
-}
-
-h2 {
+/* Investment Section */
+.investment-section {
+    grid-area: investment-section;
+    background-color: var(--light-blue);
     text-align: center;
 }
 
-form {
+.investment-section h1 {
+    font-size: 48px;
+}
+
+.investment-section p {
+    font-size: 18px;
+}
+
+/* Forum Section */
+.forum-section {
+    grid-area: forum-section;
+    background-color: var(--light-blue);
     text-align: center;
+}
+
+.forum-section h1 {
+    font-size: 36px;
+}
+
+.forum-section h3 {
+    font-size: 24px;
+}
+
+.forum-section p {
+    font-size: 18px;
+}
+
+/* Risk Tool Section */
+.risk-tool-section {
+    grid-area: risk-tool-section;
+    background-color: var(--light-blue);
+    text-align: center;
+}
+
+.risk-tool-section h1 {
+    font-size: 36px;
+}
+
+.risk-tool-section h3 {
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+.risk-tool-section p {
+    font-size: 18px;
+}
+
+/* World Diabetes Day Section */
+#world-diabetes-day {
+    grid-area: image-container;
+    display: flex;
+    background-color: var(--light-blue);
+}
+
+#image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+#text-content {
+    grid-area: text-content;
+}
+
+#text-content h2 {
+    font-size: 28px;
+}
+
+#text-content p {
+    font-size: 18px;
+}
+
+/* HbA1c Section */
+#hba1c-section {
+    grid-area: hba1c-image hba1c-text;
+    display: flex;
+    background-color: var(--light-blue);
+}
+
+#hba1c-image {
+    grid-area: hba1c-image;
+}
+
+#hba1c-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+#hba1c-text {
+    grid-area: hba1c-text;
+}
+
+#hba1c-text h2 {
+    font-size: 28px;
+}
+
+/* Footer Styling */
+footer {
+    grid-area: footer;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
 }
 
 body > footer {
-    background-color: orange;
     display: flex;   
+    justify-content: space-around;
+    text-align: center;
     }  
 
 #footer-ul {
     display: flex;
+    justify-content: space-evenly;
     list-style: none;
 
 }
 
+#footer-ul > div {
+    display: flexbox;
+    justify-content: space-between;
+    margin-left: 12px;    
+    text-align: left;
+}
 #footer-ul > div > li {
     margin-left: 12px;    
+    text-align: left;
 }
 
 #footer-ul > div > li > a {
@@ -103,6 +237,8 @@ body > footer {
     text-decoration: none;
 }
 
-img {
-    border-radius: 50%;
-}
+img { max-width:30vw ; height: auto; }
+
+
+
+
